@@ -59,8 +59,8 @@ export const Concept: React.FC = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-brand-accent/20 transform rotate-3 rounded-2xl blur-lg"></div>
             <img 
-              src="https://picsum.photos/800/600?grayscale" 
-              alt="Polishing Detail" 
+              src="https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?q=80&w=2074&auto=format&fit=crop" 
+              alt="Professional Car Polishing" 
               className="relative rounded-2xl shadow-2xl border border-slate-700 hover:scale-[1.02] transition-transform duration-500"
             />
             <div className="absolute bottom-6 left-6 right-6 bg-slate-900/90 backdrop-blur p-4 rounded-xl border border-slate-700">

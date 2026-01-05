@@ -10,6 +10,8 @@
       window.process = { env: { NODE_ENV: 'production' } };
     </script>
 
+    <!-- Babel: JSXをブラウザでリアルタイム変換 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     
@@ -18,9 +20,7 @@
         darkMode: 'class',
         theme: {
           extend: {
-            fontFamily: {
-              sans: ['"Inter"', '"Noto Sans JP"', 'sans-serif'],
-            },
+            fontFamily: { sans: ['"Inter"', '"Noto Sans JP"', 'sans-serif'] },
             colors: {
               brand: {
                 dark: '#020617',
@@ -35,22 +35,8 @@
     </script>
 
     <style>
-      body {
-        background-color: #020617;
-        color: #f8fafc;
-        margin: 0;
-        overflow-x: hidden;
-        font-family: "Inter", "Noto Sans JP", sans-serif;
-      }
-      #root:empty::before {
-        content: 'Loading Application...';
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        color: #64748b;
-        font-size: 14px;
-      }
+      body { background-color: #020617; color: #f8fafc; margin: 0; overflow-x: hidden; font-family: "Inter", "Noto Sans JP", sans-serif; }
+      #root:empty::before { content: 'Loading...'; display: flex; justify-content: center; align-items: center; height: 100vh; color: #64748b; }
     </style>
 
     <script type="importmap">
@@ -67,10 +53,9 @@
 }
 </script>
   </head>
-  <body class="antialiased">
+  <body>
     <div id="root"></div>
-    
-    <!-- index.tsx の読み込みを明示 -->
-    <script type="module" src="./index.tsx"></script>
+    <!-- type="text/babel" と data-type="module" を指定することで、ブラウザがJSXを解釈します -->
+    <script type="text/babel" data-type="module" src="./index.js"></script>
   </body>
 </html>

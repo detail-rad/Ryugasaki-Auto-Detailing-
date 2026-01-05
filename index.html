@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     <script>
+      // Reactや一部のライブラリが期待する環境変数のシム
+      window.process = { env: { NODE_ENV: 'production' } };
+      
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -27,14 +30,8 @@
               'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
             },
             keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
+              fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+              fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
             }
           },
         },
@@ -46,20 +43,6 @@
         color: #f8fafc;
         margin: 0;
         overflow-x: hidden;
-      }
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020617; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1e293b; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #334155; 
       }
       #root {
         min-height: 100vh;
@@ -81,5 +64,10 @@
   </head>
   <body class="antialiased">
     <div id="root"></div>
+    <!-- 
+      注意: index.tsx は環境によって自動的にインポートされます。
+      手動で script タグを追加すると MIMEタイプエラーが発生する可能性があるため、
+      ここでは追加しません。
+    -->
   </body>
 </html>

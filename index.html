@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ryugasaki Auto Detailing</title>
+    <title>Ryugasaki Auto Detailing | 塗装を削らない次世代コーティング</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -15,10 +16,24 @@
             },
             colors: {
               brand: {
-                dark: '#0f172a',
+                dark: '#020617',
                 accent: '#38bdf8',
                 gold: '#fbbf24',
                 silver: '#cbd5e1',
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.8s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
               }
             }
           },
@@ -27,25 +42,30 @@
     </script>
     <style>
       body {
-        background-color: #0f172a;
+        background-color: #020617;
         color: #f8fafc;
+        margin: 0;
+        overflow-x: hidden;
       }
-      /* Custom scrollbar for webkit */
+      /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a; 
+        background: #020617; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #1e293b; 
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569; 
+        background: #334155; 
+      }
+      #root {
+        min-height: 100vh;
       }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
@@ -58,9 +78,9 @@
   }
 }
 </script>
-</head>
-  <body>
-    <div id="root" class="flex items-center justify-center min-h-screen text-slate-500 text-sm">Loading...</div>
+  </head>
+  <body class="antialiased">
+    <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>
